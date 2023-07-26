@@ -1,0 +1,25 @@
+{
+  "name": "reg-publish-azure-blob-storage-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Yukon Sky",
+  "license": "MIT",
+  "dependencies": {
+    "@azure/storage-blob": "^12.15.0",
+    "reg-suit-interface": "^0.12.2",
+    "reg-suit-util": "^0.12.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6"
+  }
+}

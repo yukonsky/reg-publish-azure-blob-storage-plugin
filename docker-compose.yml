@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  reg-publish-azure-blob-storage-plugin-dev:
+    container_name: reg-publish-azure-blob-storage-plugin-dev
+    build:
+      context: ./
+      dockerfile: .devcontainer/Dockerfile
+    networks:
+      - default
+    volumes:
+      - ./:/app/
+      - ~/.gitconfig:/home/node/.gitconfig
+      - ~/.ssh/:/home/node/.ssh/
+      - node_modules:/app/node_modules
+    tty: true
+    env_file: .env
+  reg-publish-azure-blob-storage-plugin-dev-storage:
+    container_name: reg-publish-azure-blob-storage-plugin-dev-storage
+    hostname: storage
+    image: mcr.microsoft.com/azure-storage/azurite
+    restart: always
+    networks:
+      - default
+    ports:
+      - 20000:10000
+      - 20001:10001
+      - 20002:10002
+    volumes:
+      - storage:/data
+    tty: true
+volumes:
+  node_modules:
+  storage:
+networks:
+  default:
+    driver: bridge
