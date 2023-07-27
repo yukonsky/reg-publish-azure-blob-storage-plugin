@@ -65,3 +65,4 @@ package-lock.json
 /lib/
 .pnpm-store
 **/dist
+e2e/report-fixture-expected/

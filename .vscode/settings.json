@@ -24,7 +24,7 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.words": [],
+  "cSpell.words": ["devstoreaccount"],
   "cSpell.ignorePaths": [
     "pnpm-lock.yaml",
     "**/node_modules",
