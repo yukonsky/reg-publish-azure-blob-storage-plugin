@@ -24,8 +24,6 @@ services:
       - default
     ports:
       - 20000:10000
-      - 20001:10001
-      - 20002:10002
     volumes:
       - storage:/data
     tty: true
