@@ -3,23 +3,37 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "ts-node -r tsconfig-paths/register e2e/script.ts"
+  },
   "keywords": [],
   "author": "Yukon Sky",
   "license": "MIT",
   "dependencies": {
+    "@azure/core-auth": "^1.4.0",
+    "@azure/identity": "^3.2.4",
     "@azure/storage-blob": "^12.15.0",
+    "fs": "0.0.1-security",
     "reg-suit-interface": "^0.12.2",
-    "reg-suit-util": "^0.12.2"
+    "reg-suit-util": "^0.12.2",
+    "util": "^0.12.5",
+    "uuid": "^9.0.0",
+    "zlib": "^1.0.5"
   },
   "devDependencies": {
+    "@types/glob": "^8.1.0",
     "@types/node": "^20.4.5",
+    "@types/uuid": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
+    "dotenv": "^16.3.1",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "glob": "^10.3.3",
     "prettier": "^3.0.0",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.6"
   }
 }
