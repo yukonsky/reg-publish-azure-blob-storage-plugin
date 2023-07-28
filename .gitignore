@@ -66,3 +66,4 @@ package-lock.json
 .pnpm-store
 **/dist
 e2e/report-fixture-expected/
+*.tsbuildinfo
