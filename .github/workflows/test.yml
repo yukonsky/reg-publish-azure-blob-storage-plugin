@@ -19,6 +19,7 @@ on:
       - "e2e/**"
 
 permissions:
+  contents: read
   actions: write
 
 jobs:
