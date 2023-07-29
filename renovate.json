@@ -20,5 +20,19 @@
       "groupName": "devDependencies"
     }
   ],
-  "rangeStrategy": "bump"
+  "rangeStrategy": "bump",
+  "regexManagers": [
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": ["PNPM_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "pnpm",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "fileMatch": ["^(backend|frontend)-test\\.yml$"],
+      "matchStrings": ["version: (?<currentValue>.*?)\n"],
+      "depNameTemplate": "pnpm",
+      "datasourceTemplate": "npm"
+    }
+  ]
 }
