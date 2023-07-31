@@ -25,6 +25,7 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
           registry-url: https://npm.pkg.github.com/
+          git-checks: false
           always-auth: true
           scope: "@yukonsky"
 
