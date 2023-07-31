@@ -30,7 +30,8 @@
     "**/node_modules",
     ".git/objects",
     ".vscode",
-    ".devcontainer"
+    ".devcontainer",
+    ".github"
   ],
   "prettier.configPath": ".prettierrc",
   "prettier.ignorePath": ".prettierignore",

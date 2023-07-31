@@ -1,13 +1,21 @@
 {
   "name": "@yukonsky/reg-publish-azure-blob-storage-plugin",
   "version": "0.12.2",
-  "description": "",
-  "main": "index.js",
+  "description": "reg-suit Azure Blob Storage plugin",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "test": "ts-node -r tsconfig-paths/register e2e/script.ts"
+    "test": "ts-node -r tsconfig-paths/register e2e/script.ts",
+    "lint": "eslint --ext .ts src",
+    "build": "tsc"
   },
-  "keywords": [],
-  "author": "Yukon Sky",
+  "keywords": [
+    "reg-suit",
+    "reg-suit-plugin"
+  ],
+  "author": "yukonsky",
   "license": "MIT",
   "dependencies": {
     "@azure/core-auth": "^1.4.0",

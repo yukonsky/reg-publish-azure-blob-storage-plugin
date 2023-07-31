@@ -68,6 +68,7 @@ export class AbsPublisherPlugin
     );
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async fetch(key: string): Promise<any> {
     return this.fetchInternal(key);
   }
