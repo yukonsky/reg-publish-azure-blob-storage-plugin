@@ -1,4 +1,4 @@
-name: Publish to GitHub Packages
+name: Publish to NPM
 on:
   push:
     tags:
@@ -24,7 +24,7 @@ jobs:
           node-version-file: .node-version
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
-          registry-url: https://npm.pkg.github.com/
+          registry-url: https://registry.npmjs.org
           git-checks: false
           always-auth: true
           scope: "@yukonsky"
@@ -36,9 +36,9 @@ jobs:
         run: pnpm build
 
       - name: Publish
-        run: pnpm publish
+        run: pnpm publish --access=public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Get previous tag
         id: previous_tag
