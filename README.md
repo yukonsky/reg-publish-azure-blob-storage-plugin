@@ -3,8 +3,8 @@
 ## Usage
 
 ```bash
-pnpm i -D @yukonsky/reg-publish-azure-blob-storage-plugin
-reg-suit prepare -p publish-filesystem
+pnpm i -D reg-publish-azure-blob-storage-plugin@npm:@yukonsky/reg-publish-azure-blob-storage-plugin
+reg-suit prepare -p publish-azure-blob-storage
 ```
 
 ## Configure
