@@ -9,7 +9,7 @@
   "scripts": {
     "test": "ts-node -r tsconfig-paths/register e2e/script.ts",
     "lint": "eslint --ext .ts src",
-    "build": "tsc"
+    "build": "tsc-alias"
   },
   "keywords": [
     "reg-suit",
@@ -41,6 +41,7 @@
     "glob": "^10.3.3",
     "prettier": "^3.0.0",
     "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.7",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.6"
   }
