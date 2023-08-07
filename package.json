@@ -1,6 +1,6 @@
 {
   "name": "@yukonsky/reg-publish-azure-blob-storage-plugin",
-  "version": "0.12.3",
+  "version": "0.12.4",
   "description": "reg-suit Azure Blob Storage plugin",
   "main": "lib/index.js",
   "files": [
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "ts-node -r tsconfig-paths/register e2e/script.ts",
     "lint": "eslint --ext .ts src",
-    "build": "tsc-alias"
+    "build": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json"
   },
   "keywords": [
     "reg-suit",
