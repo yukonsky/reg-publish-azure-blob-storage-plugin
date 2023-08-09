@@ -14,6 +14,9 @@ dependencies:
   '@azure/storage-blob':
     specifier: ^12.15.0
     version: 12.15.0
+  mimetics:
+    specifier: ^0.0.6
+    version: 0.0.6
   reg-suit-interface:
     specifier: ^0.12.2
     version: 0.12.2
@@ -1531,6 +1534,10 @@ packages:
     engines: {node: '>= 0.6'}
     dependencies:
       mime-db: 1.52.0
+    dev: false
+
+  /mimetics@0.0.6:
+    resolution: {integrity: sha512-XkVCpCx6FqbPsQJoNCcFUFDimFqq5DBrgiqXnLeGmHcXrTpOTvA7bGcLDb8YiY9fkIUvN3EmBMRF1QLma3uOXw==}
     dev: false
 
   /mimic-fn@2.1.0:

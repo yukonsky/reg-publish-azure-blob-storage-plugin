@@ -10,8 +10,8 @@ import * as dotenv from 'dotenv';
 import * as glob from 'glob';
 import * as path from 'path';
 import { createLogger } from 'reg-suit-util';
-import { AbsContainerPreparer } from '../src/abs-container-preparer';
-import { AbsPublisherPlugin } from '../src/abs-publisher-plugin';
+import { AbsContainerPreparer } from '../lib/abs-container-preparer';
+import { AbsPublisherPlugin } from '../lib/abs-publisher-plugin';
 
 dotenv.config();
 
