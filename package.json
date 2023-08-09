@@ -1,6 +1,6 @@
 {
   "name": "@yukonsky/reg-publish-azure-blob-storage-plugin",
-  "version": "0.12.4",
+  "version": "0.12.5",
   "description": "reg-suit Azure Blob Storage plugin",
   "main": "lib/index.js",
   "files": [
@@ -21,12 +21,9 @@
     "@azure/core-auth": "^1.5.0",
     "@azure/identity": "^3.2.4",
     "@azure/storage-blob": "^12.15.0",
-    "fs": "0.0.1-security",
     "reg-suit-interface": "^0.12.2",
     "reg-suit-util": "^0.12.2",
-    "util": "^0.12.5",
-    "uuid": "^9.0.0",
-    "zlib": "^1.0.5"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
