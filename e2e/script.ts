@@ -1,6 +1,5 @@
-import { AbsContainerPreparer } from '@/abs-container-preparer';
-import { AbsPublisherPlugin } from '@/abs-publisher-plugin';
 import { TokenCredential } from '@azure/core-auth';
+import { DefaultAzureCredential } from '@azure/identity';
 import {
   AnonymousCredential,
   BlobServiceClient,
@@ -11,6 +10,8 @@ import * as dotenv from 'dotenv';
 import * as glob from 'glob';
 import * as path from 'path';
 import { createLogger } from 'reg-suit-util';
+import { AbsContainerPreparer } from '../src/abs-container-preparer';
+import { AbsPublisherPlugin } from '../src/abs-publisher-plugin';
 
 dotenv.config();
 
@@ -52,25 +53,32 @@ async function after(
 }
 
 async function case1() {
-  const { url, containerName, credential } = await preparer.prepare({
-    ...baseConf,
-    options: {
-      url: AZURE_STORAGE_ENDPOINT,
-      createContainer: true,
-      containerName: 'test',
-      accountName: AZURE_STORAGE_ACCOUNT_NAME,
-      accountKey: AZURE_STORAGE_ACCOUNT_KEY,
-    },
-    workingDirs: dirsA,
-  });
+  const { url, containerName, useDefaultCredential, accountName, accountKey } =
+    await preparer.prepare({
+      ...baseConf,
+      options: {
+        url: AZURE_STORAGE_ENDPOINT!,
+        createContainer: true,
+        containerName: 'test',
+        useDefaultCredential: false,
+        accountName: AZURE_STORAGE_ACCOUNT_NAME,
+        accountKey: AZURE_STORAGE_ACCOUNT_KEY,
+      },
+      workingDirs: dirsA,
+    });
+  const credential = useDefaultCredential
+    ? new DefaultAzureCredential()
+    : new StorageSharedKeyCredential(accountName!, accountKey!);
   try {
     const plugin = new AbsPublisherPlugin();
     plugin.init({
       ...baseConf,
       options: {
-        url: AZURE_STORAGE_ENDPOINT,
+        url: AZURE_STORAGE_ENDPOINT!,
         containerName,
-        credential,
+        useDefaultCredential,
+        accountName,
+        accountKey,
       },
       workingDirs: dirsA,
     });
@@ -82,9 +90,11 @@ async function case1() {
     plugin.init({
       ...baseConf,
       options: {
-        url: AZURE_STORAGE_ENDPOINT,
+        url: AZURE_STORAGE_ENDPOINT!,
         containerName,
-        credential,
+        useDefaultCredential,
+        accountName,
+        accountKey,
       },
       workingDirs: dirsB,
     });

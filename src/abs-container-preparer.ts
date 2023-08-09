@@ -18,6 +18,7 @@ const CONTAINER_PREFIX = 'reg-publish-container';
 
 export interface SetupInquireResult {
   createContainer: boolean;
+  useDefaultCredential: boolean;
   url: string;
   accountName?: string;
   accountKey?: string;
@@ -37,14 +38,24 @@ export class AbsContainerPreparer
         default: true,
       },
       {
+        name: 'useDefaultCredential',
+        type: 'confirm',
+        message: 'Use default Azure credential',
+        default: true,
+      },
+      {
         name: 'accountName',
         type: 'input',
         message: 'Azure Blob Storage Shared Key Credential: Account Name',
+        when: (ctx: { useDefaultCredential: boolean }) =>
+          !ctx.useDefaultCredential,
       },
       {
         name: 'accountKey',
         type: 'input',
         message: 'Azure Blob Storage Shared Key Credential: Account Key',
+        when: (ctx: { useDefaultCredential: boolean }) =>
+          !ctx.useDefaultCredential,
       },
       {
         name: 'url',
@@ -68,18 +79,13 @@ export class AbsContainerPreparer
   ): Promise<PluginConfig> {
     this.logger = option.logger;
     const options = option.options;
-    const credential =
-      options.accountKey === ''
-        ? new DefaultAzureCredential()
-        : new StorageSharedKeyCredential(
-            options.accountName,
-            options.accountKey
-          );
     if (!options.createContainer) {
       return {
         url: options.url,
         containerName: options.containerName,
-        credential,
+        useDefaultCredential: options.useDefaultCredential,
+        accountName: options.accountName,
+        accountKey: options.accountKey,
       };
     } else {
       const id = uuid();
@@ -91,7 +97,9 @@ export class AbsContainerPreparer
         return {
           url: options.url,
           containerName,
-          credential,
+          useDefaultCredential: options.useDefaultCredential,
+          accountName: options.accountName,
+          accountKey: options.accountKey,
         };
       }
       this.logger.info(
@@ -101,6 +109,12 @@ export class AbsContainerPreparer
       );
       const spinner = this.logger.getSpinner('Creating container...');
       spinner.start();
+      const credential = options.useDefaultCredential
+        ? new DefaultAzureCredential()
+        : new StorageSharedKeyCredential(
+            options.accountName,
+            options.accountKey
+          );
       await this.createContainer(options.url, containerName, credential);
       spinner.stop();
       this.logger.info(
@@ -109,7 +123,9 @@ export class AbsContainerPreparer
       return {
         url: options.url,
         containerName,
-        credential,
+        useDefaultCredential: options.useDefaultCredential,
+        accountName: options.accountName,
+        accountKey: options.accountKey,
       };
     }
   }

@@ -1,8 +1,6 @@
 import { streamToBuffer } from '@/utils';
-import { TokenCredential } from '@azure/core-auth';
+import { DefaultAzureCredential } from '@azure/identity';
 import {
-  AnonymousCredential,
-  BlobDownloadResponseParsed,
   BlobItem,
   BlobServiceClient,
   ContainerClient,
@@ -23,21 +21,13 @@ import {
   ObjectListResult,
   RemoteFileItem,
 } from 'reg-suit-util';
-import { promisify } from 'util';
-import * as zlib from 'zlib';
-
-const gzip = promisify(zlib.gzip);
-const gunzip = promisify(zlib.gunzip);
-
-const GZIP_CONTENT_TYPE = 'application/gzip';
 
 export interface PluginConfig {
   url: string;
   containerName: string;
-  credential:
-    | StorageSharedKeyCredential
-    | AnonymousCredential
-    | TokenCredential;
+  useDefaultCredential: boolean;
+  accountName?: string;
+  accountKey?: string;
   options?: StoragePipelineOptions;
   pattern?: string;
   pathPrefix?: string;
@@ -58,9 +48,15 @@ export class AbsPublisherPlugin
     this.logger = config.logger;
     this.options = config;
     this.pluginConfig = config.options;
+    const credential = this.pluginConfig.useDefaultCredential
+      ? new DefaultAzureCredential()
+      : new StorageSharedKeyCredential(
+          this.pluginConfig.accountName,
+          this.pluginConfig.accountKey
+        );
     const blobServiceClient = new BlobServiceClient(
       this.pluginConfig.url,
-      this.pluginConfig.credential,
+      credential,
       this.pluginConfig.options
     );
     this.containerClient = blobServiceClient.getContainerClient(
@@ -82,18 +78,12 @@ export class AbsPublisherPlugin
   }
 
   protected async uploadItem(key: string, item: FileItem): Promise<FileItem> {
-    const content = await fs.readFile(item.absPath);
-    const data = await gzip(content);
+    const data = await fs.readFile(item.absPath);
 
     await this.containerClient.uploadBlockBlob(
       `${key}/${item.path}`,
       data,
-      data.length,
-      {
-        blobHTTPHeaders: {
-          blobContentType: GZIP_CONTENT_TYPE,
-        },
-      }
+      data.length
     );
     this.logger.verbose(`Uploaded from ${item.absPath} to ${key}/${item.path}`);
     return item;
@@ -107,7 +97,9 @@ export class AbsPublisherPlugin
       remoteItem.remotePath
     );
     const blobDownloadResponse = await blockBlobClient.download();
-    const content = await this.gunzipIfNeed(blobDownloadResponse);
+    const content = await streamToBuffer(
+      blobDownloadResponse.readableStreamBody
+    );
     const dirName = path.dirname(item.absPath);
     await fs.mkdir(dirName, { recursive: true });
     await fs.writeFile(item.absPath, content);
@@ -115,18 +107,6 @@ export class AbsPublisherPlugin
       `Downloaded from ${remoteItem.remotePath} to ${item.absPath}`
     );
     return item;
-  }
-
-  private async gunzipIfNeed(
-    blobDownloadResponse: BlobDownloadResponseParsed
-  ): Promise<Buffer> {
-    if (blobDownloadResponse.contentType === GZIP_CONTENT_TYPE) {
-      const buffer = await streamToBuffer(
-        blobDownloadResponse.readableStreamBody
-      );
-      return await gunzip(buffer);
-    }
-    return await streamToBuffer(blobDownloadResponse.readableStreamBody);
   }
 
   protected async listItems(
