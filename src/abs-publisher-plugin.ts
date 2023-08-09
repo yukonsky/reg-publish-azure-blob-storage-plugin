@@ -8,6 +8,7 @@ import {
   StorageSharedKeyCredential,
 } from '@azure/storage-blob';
 import * as fs from 'fs/promises';
+import * as mimetics from 'mimetics';
 import * as path from 'path';
 import {
   PluginCreateOptions,
@@ -73,17 +74,25 @@ export class AbsPublisherPlugin
     const { indexFile } = await this.publishInternal(key);
     const reportUrl =
       indexFile &&
-      `${this.pluginConfig.url}/${this.resolveInBucket(key)}/${indexFile.path}`;
+      `${this.pluginConfig.url}/${
+        this.pluginConfig.containerName
+      }/${this.resolveInBucket(key)}/${indexFile.path}`;
     return { reportUrl };
   }
 
   protected async uploadItem(key: string, item: FileItem): Promise<FileItem> {
     const data = await fs.readFile(item.absPath);
+    const fileInfo = await mimetics.parse(data);
 
     await this.containerClient.uploadBlockBlob(
       `${key}/${item.path}`,
       data,
-      data.length
+      data.length,
+      {
+        blobHTTPHeaders: {
+          blobContentType: fileInfo.mime,
+        },
+      }
     );
     this.logger.verbose(`Uploaded from ${item.absPath} to ${key}/${item.path}`);
     return item;
