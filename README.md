@@ -13,10 +13,9 @@ reg-suit prepare -p publish-azure-blob-storage
 {
   url: string;
   containerName: string;
-  credential:
-    | StorageSharedKeyCredential
-    | AnonymousCredential
-    | TokenCredential;
+  useDefaultCredential: boolean;
+  accountName?: string;
+  accountKey?: string;
   options?: StoragePipelineOptions;
   pattern?: string;
   pathPrefix?: string;
