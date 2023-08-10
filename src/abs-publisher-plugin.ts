@@ -4,7 +4,6 @@ import {
   BlobItem,
   BlobServiceClient,
   ContainerClient,
-  RestError,
   StoragePipelineOptions,
   StorageSharedKeyCredential,
 } from '@azure/storage-blob';
@@ -106,28 +105,16 @@ export class AbsPublisherPlugin
     const blockBlobClient = this.containerClient.getBlockBlobClient(
       remoteItem.remotePath
     );
-    try {
-      const blobDownloadResponse = await blockBlobClient.download();
-      const content = await streamToBuffer(
-        blobDownloadResponse.readableStreamBody
-      );
-      const dirName = path.dirname(item.absPath);
-      await fs.mkdir(dirName, { recursive: true });
-      await fs.writeFile(item.absPath, content);
-      this.logger.verbose(
-        `Downloaded from ${remoteItem.remotePath} to ${item.absPath}`
-      );
-    } catch (e: unknown) {
-      if (e instanceof RestError) {
-        if (e.statusCode === 404) {
-          this.logger.warn(`Not found ${remoteItem.remotePath}`);
-        } else {
-          throw e;
-        }
-      } else {
-        throw e;
-      }
-    }
+    const blobDownloadResponse = await blockBlobClient.download();
+    const content = await streamToBuffer(
+      blobDownloadResponse.readableStreamBody
+    );
+    const dirName = path.dirname(item.absPath);
+    await fs.mkdir(dirName, { recursive: true });
+    await fs.writeFile(item.absPath, content);
+    this.logger.verbose(
+      `Downloaded from ${remoteItem.remotePath} to ${item.absPath}`
+    );
     return item;
   }
 
