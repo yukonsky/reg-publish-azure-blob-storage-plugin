@@ -4,7 +4,6 @@ import {
   BlobItem,
   BlobServiceClient,
   ContainerClient,
-  RestError,
   StoragePipelineOptions,
   StorageSharedKeyCredential,
 } from '@azure/storage-blob';
@@ -103,33 +102,19 @@ export class AbsPublisherPlugin
     remoteItem: RemoteFileItem,
     item: FileItem
   ): Promise<FileItem> {
-    const dirName = path.dirname(item.absPath);
-    await fs.mkdir(dirName, { recursive: true });
-
     const blockBlobClient = this.containerClient.getBlockBlobClient(
       remoteItem.remotePath
     );
-
-    try {
-      const blobDownloadResponse = await blockBlobClient.download();
-      const content = await streamToBuffer(
-        blobDownloadResponse.readableStreamBody
-      );
-      await fs.writeFile(item.absPath, content);
-      this.logger.verbose(
-        `Downloaded from ${remoteItem.remotePath} to ${item.absPath}`
-      );
-    } catch (e: unknown) {
-      if (e instanceof RestError) {
-        if (e.statusCode === 404) {
-          this.logger.warn(`Not found ${remoteItem.remotePath}`);
-        } else {
-          throw e;
-        }
-      } else {
-        throw e;
-      }
-    }
+    const blobDownloadResponse = await blockBlobClient.download();
+    const content = await streamToBuffer(
+      blobDownloadResponse.readableStreamBody
+    );
+    const dirName = path.dirname(item.absPath);
+    await fs.mkdir(dirName, { recursive: true });
+    await fs.writeFile(item.absPath, content);
+    this.logger.verbose(
+      `Downloaded from ${remoteItem.remotePath} to ${item.absPath}`
+    );
     return item;
   }
 
@@ -149,9 +134,16 @@ export class AbsPublisherPlugin
       isTruncated: response.done,
       contents: !files
         ? []
-        : files.map((item) => ({
-            key: item.name,
-          })),
+        : files
+            .filter(
+              (item) =>
+                !('ResourceType' in item.properties) ||
+                (item as unknown as { ResourceType: string }).ResourceType ===
+                  'file'
+            )
+            .map((item) => ({
+              key: item.name,
+            })),
       nextMarker,
     };
   }
