@@ -103,16 +103,18 @@ export class AbsPublisherPlugin
     remoteItem: RemoteFileItem,
     item: FileItem
   ): Promise<FileItem> {
+    const dirName = path.dirname(item.absPath);
+    await fs.mkdir(dirName, { recursive: true });
+
     const blockBlobClient = this.containerClient.getBlockBlobClient(
       remoteItem.remotePath
     );
+
     try {
       const blobDownloadResponse = await blockBlobClient.download();
       const content = await streamToBuffer(
         blobDownloadResponse.readableStreamBody
       );
-      const dirName = path.dirname(item.absPath);
-      await fs.mkdir(dirName, { recursive: true });
       await fs.writeFile(item.absPath, content);
       this.logger.verbose(
         `Downloaded from ${remoteItem.remotePath} to ${item.absPath}`
