@@ -138,8 +138,7 @@ export class AbsPublisherPlugin
             .filter(
               (item) =>
                 !('ResourceType' in item.properties) ||
-                (item as unknown as { ResourceType: string }).ResourceType ===
-                  'file'
+                item.properties.ResourceType === 'file'
             )
             .map((item) => ({
               key: item.name,
