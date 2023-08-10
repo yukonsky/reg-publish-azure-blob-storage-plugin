@@ -1,6 +1,6 @@
 {
   "name": "@yukonsky/reg-publish-azure-blob-storage-plugin",
-  "version": "0.12.6",
+  "version": "0.12.7",
   "description": "reg-suit Azure Blob Storage plugin",
   "main": "lib/index.js",
   "files": [
