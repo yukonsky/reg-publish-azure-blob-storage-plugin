@@ -134,9 +134,16 @@ export class AbsPublisherPlugin
       isTruncated: response.done,
       contents: !files
         ? []
-        : files.map((item) => ({
-            key: item.name,
-          })),
+        : files
+            .filter(
+              (item) =>
+                !('ResourceType' in item.properties) ||
+                (item as unknown as { ResourceType: string }).ResourceType ===
+                  'file'
+            )
+            .map((item) => ({
+              key: item.name,
+            })),
       nextMarker,
     };
   }
