@@ -10,6 +10,7 @@ on:
       - "pnpm-lock.yaml"
       - "src/**"
       - "e2e/**"
+      - ".node-version"
   pull_request:
     paths:
       - ".github/workflows/test.yml"
@@ -17,6 +18,7 @@ on:
       - "pnpm-lock.yaml"
       - "src/**"
       - "e2e/**"
+      - ".node-version"
 
 permissions:
   contents: read
