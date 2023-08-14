@@ -16,8 +16,6 @@ RUN echo "$USER_NAME:$PASSWORD" | chpasswd && \
 RUN mkdir -p $APP_DIR
 RUN mkdir -p $APP_DIR/.pnpm-store
 RUN mkdir -p $APP_DIR/node_modules
-RUN mkdir -p $APP_DIR/frontend/node_modules
-RUN mkdir -p $APP_DIR/backend/node_modules
 RUN chown $USER_NAME:$GROUP_NAME -R $APP_DIR
 USER $USER_NAME
 RUN curl -fsSL https://get.pnpm.io/install.sh | bash -
