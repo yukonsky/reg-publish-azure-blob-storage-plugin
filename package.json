@@ -15,7 +15,17 @@
     "reg-suit",
     "reg-suit-plugin"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yukonsky/reg-publish-azure-blob-storage-plugin.git"
+  },
   "author": "yukonsky",
+  "contributors": [
+    {
+      "name": "Yoshio Miyamae",
+      "email": "miyamae@yukon-sky.jp"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "@azure/core-auth": "^1.5.0",
