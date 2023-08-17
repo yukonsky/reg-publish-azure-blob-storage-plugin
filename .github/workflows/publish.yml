@@ -10,6 +10,15 @@ permissions:
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+    env:
+      AZURE_STORAGE_ENDPOINT: "http://localhost:10000/devstoreaccount1"
+      AZURE_STORAGE_ACCOUNT_NAME: "devstoreaccount1"
+      AZURE_STORAGE_ACCOUNT_KEY: "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="
+    services:
+      storage:
+        image: mcr.microsoft.com/azure-storage/azurite
+        ports:
+          - 10000:10000
     steps:
       - name: Checkout
         uses: actions/checkout@v3
