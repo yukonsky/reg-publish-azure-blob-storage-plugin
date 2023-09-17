@@ -30,11 +30,11 @@
   "dependencies": {
     "@azure/core-auth": "^1.5.0",
     "@azure/identity": "^3.3.0",
-    "@azure/storage-blob": "^12.15.0",
+    "@azure/storage-blob": "^12.16.0",
     "mimetics": "^0.0.6",
     "reg-suit-interface": "^0.12.2",
     "reg-suit-util": "^0.12.2",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
