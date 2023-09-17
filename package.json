@@ -38,19 +38,19 @@
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
-    "@types/node": "^20.5.1",
-    "@types/uuid": "^9.0.2",
-    "@typescript-eslint/eslint-plugin": "^6.4.0",
-    "@typescript-eslint/parser": "^6.4.0",
+    "@types/node": "^20.6.2",
+    "@types/uuid": "^9.0.4",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
     "dotenv": "^16.3.1",
-    "eslint": "^8.47.0",
+    "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "glob": "^10.3.3",
-    "prettier": "^3.0.2",
+    "glob": "^10.3.4",
+    "prettier": "^3.0.3",
     "ts-node": "^10.9.1",
     "tsc-alias": "^1.8.7",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   }
 }
