@@ -15,8 +15,8 @@ dependencies:
     specifier: ^12.16.0
     version: 12.16.0
   mimetics:
-    specifier: ^0.0.6
-    version: 0.0.6
+    specifier: ^0.0.8
+    version: 0.0.8
   reg-suit-interface:
     specifier: ^0.12.2
     version: 0.12.2
@@ -1530,8 +1530,8 @@ packages:
       mime-db: 1.52.0
     dev: false
 
-  /mimetics@0.0.6:
-    resolution: {integrity: sha512-XkVCpCx6FqbPsQJoNCcFUFDimFqq5DBrgiqXnLeGmHcXrTpOTvA7bGcLDb8YiY9fkIUvN3EmBMRF1QLma3uOXw==}
+  /mimetics@0.0.8:
+    resolution: {integrity: sha512-StlElci2ybdVSzNVx1up4RWRgGbUE43dxHgSV+lD8QtfOVtBvTCiG5xq2cq9hsL0IzibTpI5RQCYcKpkMuwdMQ==}
     dev: false
 
   /mimic-fn@2.1.0:
