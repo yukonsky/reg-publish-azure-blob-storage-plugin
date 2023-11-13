@@ -40,6 +40,7 @@
     "@types/glob": "^8.1.0",
     "@types/node": "^20.9.1",
     "@types/uuid": "^9.0.7",
+    "@types/serviceworker": "0.0.76",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "dotenv": "^16.3.1",
