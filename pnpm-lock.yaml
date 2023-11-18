@@ -9,11 +9,11 @@ dependencies:
     specifier: ^1.5.0
     version: 1.5.0
   '@azure/identity':
-    specifier: ^3.3.0
-    version: 3.3.0
+    specifier: ^3.4.1
+    version: 3.4.1
   '@azure/storage-blob':
-    specifier: ^12.16.0
-    version: 12.16.0
+    specifier: ^12.17.0
+    version: 12.17.0
   mimetics:
     specifier: ^0.0.8
     version: 0.0.8
@@ -105,7 +105,7 @@ packages:
       '@azure/core-auth': 1.5.0
       '@azure/core-rest-pipeline': 1.11.0
       '@azure/core-tracing': 1.0.1
-      '@azure/core-util': 1.3.2
+      '@azure/core-util': 1.6.1
       '@azure/logger': 1.0.4
       tslib: 2.6.1
     transitivePeerDependencies:
@@ -158,7 +158,7 @@ packages:
       '@azure/abort-controller': 1.1.0
       '@azure/core-auth': 1.5.0
       '@azure/core-tracing': 1.0.1
-      '@azure/core-util': 1.3.2
+      '@azure/core-util': 1.6.1
       '@azure/logger': 1.0.4
       form-data: 4.0.0
       http-proxy-agent: 5.0.0
@@ -191,8 +191,16 @@ packages:
       tslib: 2.6.1
     dev: false
 
-  /@azure/identity@3.3.0:
-    resolution: {integrity: sha512-gISa/dAAxrWt6F2WiDXZY0y2xY4MLlN2wkNW4cPuq5OgPQKLSkxLc4I2WR04puTfZyQZnpXbAapAMEj1b96fgg==}
+  /@azure/core-util@1.6.1:
+    resolution: {integrity: sha512-h5taHeySlsV9qxuK64KZxy4iln1BtMYlNt5jbuEFN3UFSAd1EwKg/Gjl5a6tZ/W8t6li3xPnutOx7zbDyXnPmQ==}
+    engines: {node: '>=16.0.0'}
+    dependencies:
+      '@azure/abort-controller': 1.1.0
+      tslib: 2.6.1
+    dev: false
+
+  /@azure/identity@3.4.1:
+    resolution: {integrity: sha512-oQ/r5MBdfZTMIUcY5Ch8G7Vv9aIXDkEYyU4Dfqjim4MQN+LY2uiQ57P1JDopMLeHCsZxM4yy8lEdne3tM9Xhzg==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@azure/abort-controller': 1.1.0
@@ -200,17 +208,15 @@ packages:
       '@azure/core-client': 1.7.3
       '@azure/core-rest-pipeline': 1.11.0
       '@azure/core-tracing': 1.0.1
-      '@azure/core-util': 1.3.2
+      '@azure/core-util': 1.6.1
       '@azure/logger': 1.0.4
-      '@azure/msal-browser': 2.38.0
-      '@azure/msal-common': 13.2.0
-      '@azure/msal-node': 1.18.0
+      '@azure/msal-browser': 3.5.0
+      '@azure/msal-node': 2.5.1
       events: 3.3.0
       jws: 4.0.0
       open: 8.4.2
       stoppable: 1.1.0
       tslib: 2.6.1
-      uuid: 8.3.2
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -222,29 +228,29 @@ packages:
       tslib: 2.6.1
     dev: false
 
-  /@azure/msal-browser@2.38.0:
-    resolution: {integrity: sha512-gxBh83IumHgEP9uMCm9pJLKLRwICMQTxG9TX3AytdNt3oLUI3tytm/szYD5u5zKJgSkhHvwFSM+NPnM04hYw3w==}
+  /@azure/msal-browser@3.5.0:
+    resolution: {integrity: sha512-2NtMuel4CI3UEelCPKkNRXgKzpWEX48fvxIvPz7s0/sTcCaI08r05IOkH2GkXW+czUOtuY6+oGafJCpumnjRLg==}
     engines: {node: '>=0.8.0'}
     dependencies:
-      '@azure/msal-common': 13.2.0
+      '@azure/msal-common': 14.4.0
     dev: false
 
-  /@azure/msal-common@13.2.0:
-    resolution: {integrity: sha512-rnstQ7Zgn3fSTKNQO+/YNV34/QXJs0vni7IA0/3QB1EEyrJg14xyRmTqlw9ta+pdSuT5OJwUP8kI3D/rBwUIBw==}
+  /@azure/msal-common@14.4.0:
+    resolution: {integrity: sha512-ffCymScQuMKVj+YVfwNI52A5Tu+uiZO2eTf+c+3TXxdAssks4nokJhtr+uOOMxH0zDi6d1OjFKFKeXODK0YLSg==}
     engines: {node: '>=0.8.0'}
     dev: false
 
-  /@azure/msal-node@1.18.0:
-    resolution: {integrity: sha512-N6GX1Twxw524e7gaJvj7hKtrPRmZl9qGY7U4pmUdx4XzoWYRFfYk4H1ZjVhQ7pwb5Ks88NNhbXVCagsuYPTEFg==}
-    engines: {node: 10 || 12 || 14 || 16 || 18}
+  /@azure/msal-node@2.5.1:
+    resolution: {integrity: sha512-PsPRISqCG253HQk1cAS7eJW7NWTbnBGpG+vcGGz5z4JYRdnM2EIXlj1aBpXCdozenEPtXEVvHn2ELleW1w82nQ==}
+    engines: {node: 16|| 18 || 20}
     dependencies:
-      '@azure/msal-common': 13.2.0
+      '@azure/msal-common': 14.4.0
       jsonwebtoken: 9.0.1
       uuid: 8.3.2
     dev: false
 
-  /@azure/storage-blob@12.16.0:
-    resolution: {integrity: sha512-jz33rUSUGUB65FgYrTRgRDjG6hdPHwfvHe+g/UrwVG8MsyLqSxg9TaW7Yuhjxu1v1OZ5xam2NU6+IpCN0xJO8Q==}
+  /@azure/storage-blob@12.17.0:
+    resolution: {integrity: sha512-sM4vpsCpcCApagRW5UIjQNlNylo02my2opgp0Emi8x888hZUvJ3dN69Oq20cEGXkMUWnoCrBaB0zyS3yeB87sQ==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@azure/abort-controller': 1.1.0
