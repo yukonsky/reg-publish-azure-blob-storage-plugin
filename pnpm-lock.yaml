@@ -9,8 +9,8 @@ dependencies:
     specifier: ^1.5.0
     version: 1.5.0
   '@azure/identity':
-    specifier: ^3.4.1
-    version: 3.4.1
+    specifier: ^4.0.0
+    version: 4.0.0
   '@azure/storage-blob':
     specifier: ^12.17.0
     version: 12.17.0
@@ -119,7 +119,7 @@ packages:
       '@azure/abort-controller': 1.1.0
       '@azure/core-auth': 1.5.0
       '@azure/core-tracing': 1.0.0-preview.13
-      '@azure/core-util': 1.3.2
+      '@azure/core-util': 1.6.1
       '@azure/logger': 1.0.4
       '@types/node-fetch': 2.6.4
       '@types/tunnel': 0.0.3
@@ -139,7 +139,7 @@ packages:
     engines: {node: '>=14.0.0'}
     dependencies:
       '@azure/abort-controller': 1.1.0
-      '@azure/core-util': 1.3.2
+      '@azure/core-util': 1.6.1
       '@azure/logger': 1.0.4
       tslib: 2.6.1
     dev: false
@@ -199,9 +199,9 @@ packages:
       tslib: 2.6.1
     dev: false
 
-  /@azure/identity@3.4.1:
-    resolution: {integrity: sha512-oQ/r5MBdfZTMIUcY5Ch8G7Vv9aIXDkEYyU4Dfqjim4MQN+LY2uiQ57P1JDopMLeHCsZxM4yy8lEdne3tM9Xhzg==}
-    engines: {node: '>=14.0.0'}
+  /@azure/identity@4.0.0:
+    resolution: {integrity: sha512-gtPYxIL0kI39Dw4t3HvlbfhOdXqKD2MqDgynlklF0j728j51dcKgRo6FLX0QzpBw/1gGfLxjMXqq3nKOSQ2lmA==}
+    engines: {node: '>=18.0.0'}
     dependencies:
       '@azure/abort-controller': 1.1.0
       '@azure/core-auth': 1.5.0
