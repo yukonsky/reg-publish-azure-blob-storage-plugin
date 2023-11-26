@@ -20,7 +20,8 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "lib": ["DOM", "DOM.Iterable"]
   },
   "exclude": ["e2e"]
 }

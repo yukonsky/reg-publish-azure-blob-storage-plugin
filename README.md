@@ -16,6 +16,7 @@ reg-suit prepare -p publish-azure-blob-storage
   useDefaultCredential: boolean;
   accountName?: string;
   accountKey?: string;
+  sasExpiryHour?: number;
   options?: StoragePipelineOptions;
   pattern?: string;
   pathPrefix?: string;
