@@ -1,4 +1,4 @@
-FROM node:20.10.0-bullseye-slim
+FROM node:20.14.0-bullseye-slim
 ARG DEBIAN_FRONTEND=noninteractive
 ARG GROUP_NAME=node
 ARG USER_NAME=node
