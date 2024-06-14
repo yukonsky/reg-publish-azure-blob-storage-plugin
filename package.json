@@ -34,7 +34,7 @@
     "mimetics": "^0.0.8",
     "reg-suit-interface": "^0.14.2",
     "reg-suit-util": "^0.14.3",
-    "uuid": "^9.0.1"
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
