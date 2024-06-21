@@ -39,7 +39,7 @@
   "devDependencies": {
     "@types/glob": "^8.1.0",
     "@types/node": "^20.14.6",
-    "@types/uuid": "^9.0.8",
+    "@types/uuid": "^10.0.0",
     "@types/serviceworker": "0.0.87",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
