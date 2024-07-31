@@ -29,8 +29,8 @@
   "license": "MIT",
   "dependencies": {
     "@azure/core-auth": "^1.7.2",
-    "@azure/identity": "^4.2.1",
-    "@azure/storage-blob": "^12.23.0",
+    "@azure/identity": "^4.4.1",
+    "@azure/storage-blob": "^12.24.0",
     "mimetics": "^0.0.8",
     "reg-suit-interface": "^0.14.2",
     "reg-suit-util": "^0.14.3",
