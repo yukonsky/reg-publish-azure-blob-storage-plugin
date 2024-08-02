@@ -32,11 +32,11 @@ devDependencies:
     specifier: ^8.1.0
     version: 8.1.0
   '@types/node':
-    specifier: ^20.14.13
-    version: 20.14.13
+    specifier: ^20.14.14
+    version: 20.14.14
   '@types/serviceworker':
-    specifier: 0.0.90
-    version: 0.0.90
+    specifier: 0.0.91
+    version: 0.0.91
   '@types/uuid':
     specifier: ^10.0.0
     version: 10.0.0
@@ -66,7 +66,7 @@ devDependencies:
     version: 3.3.3
   ts-node:
     specifier: ^10.9.2
-    version: 10.9.2(@types/node@20.14.13)(typescript@5.5.4)
+    version: 10.9.2(@types/node@20.14.14)(typescript@5.5.4)
   tsc-alias:
     specifier: ^1.8.10
     version: 1.8.10
@@ -406,20 +406,20 @@ packages:
   /@types/cli-progress@3.11.0:
     resolution: {integrity: sha512-XhXhBv1R/q2ahF3BM7qT5HLzJNlIL0wbcGyZVjqOTqAybAnsLisd7gy1UCyIqpL+5Iv6XhlSyzjLCnI2sIdbCg==}
     dependencies:
-      '@types/node': 20.14.13
+      '@types/node': 20.14.14
     dev: false
 
   /@types/cli-spinner@0.2.1:
     resolution: {integrity: sha512-bsdlZy3LThi9QbsK0GXm5s/e3F6HAJi1tMsIanm9trtoStSlV3gzir9JpfOK40gERMNIVevDTpG5NzSGnYs3QA==}
     dependencies:
-      '@types/node': 20.14.13
+      '@types/node': 20.14.14
     dev: false
 
   /@types/glob@8.1.0:
     resolution: {integrity: sha512-IO+MJPVhoqz+28h1qLAcBEH2+xHMK6MTyHJc7MTnnYb6wsoLR29POVGJ7LycmVXIqyy/4/2ShP5sUwTXuOwb/w==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 20.14.13
+      '@types/node': 20.14.14
 
   /@types/inquirer@8.2.10:
     resolution: {integrity: sha512-IdD5NmHyVjWM8SHWo/kPBgtzXatwPkfwzyP3fN1jF2g9BWt5WO+8hL2F4o2GKIYsU40PpqeevuUWvkS/roXJkA==}
@@ -442,22 +442,22 @@ packages:
   /@types/mkdirp@1.0.2:
     resolution: {integrity: sha512-o0K1tSO0Dx5X6xlU5F1D6625FawhC3dU3iqr25lluNv/+/QIVH8RLNEiVokgIZo+mz+87w/3Mkg/VvQS+J51fQ==}
     dependencies:
-      '@types/node': 20.14.13
+      '@types/node': 20.14.14
     dev: false
 
-  /@types/node@20.14.13:
-    resolution: {integrity: sha512-+bHoGiZb8UiQ0+WEtmph2IWQCjIqg8MDZMAV+ppRRhUZnquF5mQkP/9vpSwJClEiSM/C7fZZExPzfU0vJTyp8w==}
+  /@types/node@20.14.14:
+    resolution: {integrity: sha512-d64f00982fS9YoOgJkAMolK7MN8Iq3TDdVjchbYHdEmjth/DHowx82GnoA+tVUAN+7vxfYUgAzi+JXbKNd2SDQ==}
     dependencies:
       undici-types: 5.26.5
 
-  /@types/serviceworker@0.0.90:
-    resolution: {integrity: sha512-hwHf2t1hsXBn9WhSKLVIrOJ8b7HF52Lb60r2Va4gtySQboITPSkZvzYsnIgCs3YF9Z7VGhiuezMHRnmzg/IfwQ==}
+  /@types/serviceworker@0.0.91:
+    resolution: {integrity: sha512-Pl5Oi1WgXeEseX4LLib/botpbvscm506GH3SPKM00mnSgQRijsQZmiYnOM8tvA7diXPIvhyk5j5+D9O2mD2qHg==}
     dev: true
 
   /@types/through@0.0.30:
     resolution: {integrity: sha512-FvnCJljyxhPM3gkRgWmxmDZyAQSiBQQWLI0A0VFL0K7W1oRUrPJSqNO0NvTnLkBcotdlp3lKvaT0JrnyRDkzOg==}
     dependencies:
-      '@types/node': 20.14.13
+      '@types/node': 20.14.14
     dev: false
 
   /@types/uuid@10.0.0:
@@ -1730,7 +1730,7 @@ packages:
       typescript: 5.5.4
     dev: true
 
-  /ts-node@10.9.2(@types/node@20.14.13)(typescript@5.5.4):
+  /ts-node@10.9.2(@types/node@20.14.14)(typescript@5.5.4):
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
@@ -1749,7 +1749,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.14.13
+      '@types/node': 20.14.14
       acorn: 8.10.0
       acorn-walk: 8.2.0
       arg: 4.1.3
