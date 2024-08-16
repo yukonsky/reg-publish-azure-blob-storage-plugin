@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
-    "@types/node": "^20.14.15",
+    "@types/node": "^20.15.0",
     "@types/uuid": "^10.0.0",
     "@types/serviceworker": "0.0.92",
     "@typescript-eslint/eslint-plugin": "^8.1.0",
