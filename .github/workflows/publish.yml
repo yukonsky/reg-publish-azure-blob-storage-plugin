@@ -49,25 +49,14 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Get previous tag
-        id: previous_tag
-        run: |
-          echo "tag=$(curl -H 'Accept: application/vnd.github.v3+json' -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)" >> $GITHUB_OUTPUT
+      - name: Get tag
+        id: get-tag
+        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
 
-      - name: Generate release note
-        id: release_note
-        run: |
-          echo "release_note=$(curl -X POST -H 'Accept: application/vnd.github.v3+json' -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/releases/generate-notes -d '{"tag_name":"${{ github.ref }}", "previous_tag_name":"${{ steps.previous_tag.outputs.tag }}"}' | jq .body | sed 's/"//g')" >> $GITHUB_OUTPUT
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Create release
+        shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          body: |
-            ${{ steps.release_note.outputs.release_note }}
-          draft: false
-          prerelease: false
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
+        run: |
+          echo "${{ github.sha }}" >> release-commit-hash
+          gh release create "${{ steps.get-tag.outputs.tag }}" --generate-notes release-commit-hash
