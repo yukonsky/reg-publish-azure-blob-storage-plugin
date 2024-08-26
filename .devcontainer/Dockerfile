@@ -6,7 +6,7 @@ ARG PASSWORD=node
 ARG DOCKER_UID=1000
 ARG DOCKER_GID=1000
 ARG APP_DIR=/app
-ARG PNPM_VERSION=8.6.9
+ARG PNPM_VERSION=9.7.1
 ENV PNPM_HOME=/home/$USER_NAME/.local/share/pnpm
 ENV PATH=$PATH:$PNPM_HOME
 RUN apt-get update && apt-get install -y curl git sudo procps
