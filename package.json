@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "test": "ts-node -r tsconfig-paths/register e2e/script.ts",
-    "lint": "eslint --ext .ts src",
+    "lint": "eslint src",
     "build": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json"
   },
   "keywords": [
@@ -39,15 +39,16 @@
   "devDependencies": {
     "@types/glob": "^8.1.0",
     "@types/node": "^20.16.1",
-    "@types/uuid": "^10.0.0",
     "@types/serviceworker": "0.0.94",
+    "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^8.2.0",
     "@typescript-eslint/parser": "^8.2.0",
     "dotenv": "^16.4.5",
-    "eslint": "^8.57.0",
+    "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "glob": "^11.0.0",
+    "globals": "^15.9.0",
     "prettier": "^3.3.3",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.10",

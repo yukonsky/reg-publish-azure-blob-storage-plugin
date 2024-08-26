@@ -1,3 +1,5 @@
+/* eslint no-undef: off */
+
 (async () => {
   const hasSas = (searchStr: string) => searchStr.includes('spr=https');
   const sas = window.location.search;
