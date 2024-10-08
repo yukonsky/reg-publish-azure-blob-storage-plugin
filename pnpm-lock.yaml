@@ -12,14 +12,14 @@ importers:
   .:
     dependencies:
       '@azure/core-auth':
-        specifier: ^1.7.2
-        version: 1.7.2
+        specifier: ^1.8.0
+        version: 1.8.0
       '@azure/identity':
         specifier: ^4.4.1
         version: 4.4.1
       '@azure/storage-blob':
-        specifier: ^12.24.0
-        version: 12.24.0
+        specifier: ^12.25.0
+        version: 12.25.0
       mimetics:
         specifier: ^0.0.8
         version: 0.0.8
@@ -95,8 +95,8 @@ packages:
     resolution: {integrity: sha512-nBrLsEWm4J2u5LpAPjxADTlq3trDgVZZXHNKabeXZtpq3d3AbN/KGO82R87rdDz5/lYB024rtEf10/q0urNgsA==}
     engines: {node: '>=18.0.0'}
 
-  '@azure/core-auth@1.7.2':
-    resolution: {integrity: sha512-Igm/S3fDYmnMq1uKS38Ae1/m37B3zigdlZw+kocwEhh5GjyKjPrXKO2J6rzpC1wAxrNil/jX9BJRqBshyjnF3g==}
+  '@azure/core-auth@1.8.0':
+    resolution: {integrity: sha512-YvFMowkXzLbXNM11yZtVLhUCmuG0ex7JKOH366ipjmHBhL3vpDcPAeWF+jf0X+jVXwFqo3UhsWUq4kH0ZPdu/g==}
     engines: {node: '>=18.0.0'}
 
   '@azure/core-client@1.9.2':
@@ -151,8 +151,8 @@ packages:
     resolution: {integrity: sha512-DhP97ycs7qlCVzzzWGzJiwAFyFj5okno74E4FUZ61oCLfKh4IxA1kxirqzrWuYZWpBe9HVPL6GA4NvmlEOBN5Q==}
     engines: {node: '>=16'}
 
-  '@azure/storage-blob@12.24.0':
-    resolution: {integrity: sha512-l8cmWM4C7RoNCBOImoFMxhTXe1Lr+8uQ/IgnhRNMpfoA9bAFWoLG4XrWm6O5rKXortreVQuD+fc1hbzWklOZbw==}
+  '@azure/storage-blob@12.25.0':
+    resolution: {integrity: sha512-oodouhA3nCCIh843tMMbxty3WqfNT+Vgzj3Xo5jqR9UPnzq3d7mzLjlHAYz7lW+b4km3SIgz+NAgztvhm7Z6kQ==}
     engines: {node: '>=18.0.0'}
 
   '@cspotcode/source-map-support@0.8.1':
@@ -1134,7 +1134,7 @@ snapshots:
     dependencies:
       tslib: 2.7.0
 
-  '@azure/core-auth@1.7.2':
+  '@azure/core-auth@1.8.0':
     dependencies:
       '@azure/abort-controller': 2.1.2
       '@azure/core-util': 1.9.2
@@ -1143,7 +1143,7 @@ snapshots:
   '@azure/core-client@1.9.2':
     dependencies:
       '@azure/abort-controller': 2.1.2
-      '@azure/core-auth': 1.7.2
+      '@azure/core-auth': 1.8.0
       '@azure/core-rest-pipeline': 1.16.3
       '@azure/core-tracing': 1.1.2
       '@azure/core-util': 1.9.2
@@ -1174,7 +1174,7 @@ snapshots:
   '@azure/core-rest-pipeline@1.16.3':
     dependencies:
       '@azure/abort-controller': 2.1.2
-      '@azure/core-auth': 1.7.2
+      '@azure/core-auth': 1.8.0
       '@azure/core-tracing': 1.1.2
       '@azure/core-util': 1.9.2
       '@azure/logger': 1.1.4
@@ -1201,7 +1201,7 @@ snapshots:
   '@azure/identity@4.4.1':
     dependencies:
       '@azure/abort-controller': 1.1.0
-      '@azure/core-auth': 1.7.2
+      '@azure/core-auth': 1.8.0
       '@azure/core-client': 1.9.2
       '@azure/core-rest-pipeline': 1.16.3
       '@azure/core-tracing': 1.1.2
@@ -1233,10 +1233,10 @@ snapshots:
       jsonwebtoken: 9.0.2
       uuid: 8.3.2
 
-  '@azure/storage-blob@12.24.0':
+  '@azure/storage-blob@12.25.0':
     dependencies:
-      '@azure/abort-controller': 1.1.0
-      '@azure/core-auth': 1.7.2
+      '@azure/abort-controller': 2.1.2
+      '@azure/core-auth': 1.8.0
       '@azure/core-client': 1.9.2
       '@azure/core-http-compat': 2.1.2
       '@azure/core-lro': 2.7.2
