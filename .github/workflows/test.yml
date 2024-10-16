@@ -36,7 +36,7 @@ jobs:
         image: mcr.microsoft.com/azure-storage/azurite
         ports:
           - 10000:10000
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
       - name: Cancel previous workflow
         uses: styfle/cancel-workflow-action@0.12.1
