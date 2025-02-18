@@ -29,12 +29,12 @@
   "license": "MIT",
   "dependencies": {
     "@azure/core-auth": "^1.9.0",
-    "@azure/identity": "^4.5.0",
+    "@azure/identity": "^4.7.0",
     "@azure/storage-blob": "^12.26.0",
-    "mimetics": "^1.0.0",
+    "mimetics": "^1.0.4",
     "reg-suit-interface": "^0.14.2",
     "reg-suit-util": "^0.14.3",
-    "uuid": "^11.0.3"
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
