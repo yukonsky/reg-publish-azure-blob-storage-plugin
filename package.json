@@ -37,7 +37,7 @@
     "uuid": "^11.0.3"
   },
   "devDependencies": {
-    "@types/glob": "^8.1.0",
+    "@types/glob": "^9.0.0",
     "@types/node": "^22.15.32",
     "@types/serviceworker": "0.0.139",
     "@types/uuid": "^10.0.0",
