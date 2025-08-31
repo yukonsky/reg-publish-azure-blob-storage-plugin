@@ -33,6 +33,9 @@ importers:
         specifier: ^11.1.0
         version: 11.1.0
     devDependencies:
+      '@eslint/js':
+        specifier: ^9.34.0
+        version: 9.34.0
       '@types/glob':
         specifier: ^9.0.0
         version: 9.0.0
