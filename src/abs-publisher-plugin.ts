@@ -11,7 +11,7 @@ import {
   generateBlobSASQueryParameters,
 } from '@azure/storage-blob';
 import * as fs from 'fs/promises';
-import * as mimetics from 'mimetics';
+import Mimetics from 'mimetics';
 import * as path from 'path';
 import {
   PluginCreateOptions,
@@ -88,7 +88,9 @@ export class AbsPublisherPlugin
 
   protected async uploadItem(key: string, item: FileItem): Promise<FileItem> {
     const data = await fs.readFile(item.absPath);
-    const fileInfo = await mimetics.parse(data);
+    // @ts-expect-error - mimeticsの型定義がProxyパターンを正しく反映していない
+    const mimetics = new (Mimetics as unknown as new () => Mimetics)();
+    const fileInfo = mimetics.parse(data);
 
     await this.containerClient.uploadBlockBlob(
       `${key}/${item.path}`,

@@ -28,15 +28,16 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@azure/core-auth": "^1.9.0",
-    "@azure/identity": "^4.5.0",
-    "@azure/storage-blob": "^12.26.0",
-    "mimetics": "^1.0.0",
+    "@azure/core-auth": "^1.10.0",
+    "@azure/identity": "^4.11.1",
+    "@azure/storage-blob": "^12.28.0",
+    "mimetics": "^1.0.5",
     "reg-suit-interface": "^0.14.2",
     "reg-suit-util": "^0.14.3",
-    "uuid": "^11.0.3"
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.34.0",
     "@types/glob": "^9.0.0",
     "@types/node": "^22.18.0",
     "@types/serviceworker": "0.0.152",
